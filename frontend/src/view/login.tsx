@@ -69,7 +69,7 @@ function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [status, setStatus] = useState('Not signed in');
+  const [status, setStatus] = useState('');
 
   const submit = async () => {
     console.log('submit')
