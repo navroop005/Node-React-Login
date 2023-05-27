@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { login } from '../model/login';
 import { signup } from '../model/signup';
+import Buttons from './buttons';
 
 
 function StartPage(): JSX.Element {
@@ -26,6 +27,7 @@ function StartPage(): JSX.Element {
         </View>
         {login? <Login/> : <SignUp/>}
       </View>
+      <Buttons/>
     </View>
   )
 }

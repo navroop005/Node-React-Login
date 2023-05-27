@@ -1,4 +1,7 @@
 const express = require('express');
+const db_model = require('./database/db_model');
+
+db_model.test()
 
 const app = express();
 

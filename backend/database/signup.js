@@ -1,21 +1,17 @@
 const { RequestError } = require("mssql");
 const { getConnection } = require("./db_connection");
+const { User } = require("./db_model");
 
 async function signup(user) {
-  let query = `INSERT INTO [dbo].[users] VALUES ('${user.name}', '${user.email}', '${user.password}')`;
-  let conn = await getConnection();
-  if (conn === undefined) {
+  try {
+    await User.create({
+      name: user.name,
+      email: user.email,
+      password: user.password
+    });
+    return true;
+  } catch (error) {
     return false;
-  }
-  else {
-    try {
-      let rs = await conn.request().query(query);
-      console.log(rs);
-      return rs.rowsAffected.length>0;
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
   }
 }
 
